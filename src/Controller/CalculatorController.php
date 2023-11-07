@@ -32,9 +32,9 @@ class CalculatorController extends AbstractController
 
             $formData = $form->getData();
             // Rendu en fonction des devises choisies
-            if ($formData['devise1'] === $dollar && $formData['devise2'] === $dollar) {
+            if ($formData['devise1'] === $formData['devise2']) {
                 $result = $formData['valeur1'] + $formData['valeur2'];
-                $devise = 'dollars';
+                $devise = $formData['devise1'];
             } elseif($formData['devise1'] === $dollar || $formData['devise2'] === $dollar) {
                 if ($formData['devise1'] === $dollar){
                     $result = ($formData['valeur1'] * $dollarChangeEuro) + $formData['valeur2'];
